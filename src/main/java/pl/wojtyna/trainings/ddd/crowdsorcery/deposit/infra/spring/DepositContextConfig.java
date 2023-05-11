@@ -1,4 +1,4 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.infra.spring;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.spring;
 
 import org.springframework.context.annotation.Configuration;
 
