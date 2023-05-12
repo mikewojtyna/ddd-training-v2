@@ -1,11 +1,13 @@
 package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.Account;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.AccountId;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.ports.secondary.AccountRepository;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.AccountRepository;
 
 import java.util.Optional;
 
+@SecondaryAdapter
 public class InMemoryAccountRepository implements AccountRepository {
 
     @Override

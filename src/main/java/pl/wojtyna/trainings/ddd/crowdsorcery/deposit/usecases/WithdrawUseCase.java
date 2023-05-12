@@ -1,10 +1,12 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.ports.primary;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.usecases;
 
+import org.jmolecules.architecture.hexagonal.PrimaryPort;
 import org.joda.money.Money;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.EventPublisher;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.AccountId;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.ports.secondary.AccountRepository;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.AccountRepository;
 
+@PrimaryPort
 public class WithdrawUseCase {
 
     private final AccountRepository accountRepository;

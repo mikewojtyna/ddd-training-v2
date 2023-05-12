@@ -1,10 +1,12 @@
 package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.primary;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.joda.money.Money;
 import org.springframework.web.bind.annotation.*;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.AccountId;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.ports.primary.WithdrawUseCase;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.usecases.WithdrawUseCase;
 
+@PrimaryAdapter
 @RestController
 @RequestMapping("/accounts/{accountId}/withdrawals")
 public class WithdrawRestApi {
