@@ -3,8 +3,8 @@ package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.primary;
 import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.joda.money.Money;
 import org.springframework.web.bind.annotation.*;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.api.usecases.WithdrawUseCase;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.AccountId;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.usecases.WithdrawUseCase;
 
 @PrimaryAdapter
 @RestController

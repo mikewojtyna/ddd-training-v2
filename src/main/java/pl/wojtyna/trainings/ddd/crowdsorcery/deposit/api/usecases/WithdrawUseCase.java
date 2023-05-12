@@ -1,4 +1,4 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.usecases;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.api.usecases;
 
 import org.jmolecules.architecture.hexagonal.PrimaryPort;
 import org.joda.money.Money;
