@@ -21,7 +21,7 @@ public class WithdrawUseCase {
         accountRepository.load(id).ifPresent(account -> {
             var events = account.withdraw(amount);
             accountRepository.save(account);
-            events.publishUsing(eventPublisher);
+            eventPublisher.publish(events);
         });
     }
 }
