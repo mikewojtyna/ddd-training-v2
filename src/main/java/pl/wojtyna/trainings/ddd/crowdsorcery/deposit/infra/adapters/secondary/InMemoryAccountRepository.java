@@ -1,9 +1,9 @@
 package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary;
 
 import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.Account;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.AccountId;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.AccountRepository;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.Account;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.AccountId;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.AccountRepository;
 
 import java.util.Optional;
 

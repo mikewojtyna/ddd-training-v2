@@ -1,4 +1,4 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account;
 
 import org.jmolecules.ddd.annotation.Entity;
 import org.jmolecules.ddd.annotation.Identity;
