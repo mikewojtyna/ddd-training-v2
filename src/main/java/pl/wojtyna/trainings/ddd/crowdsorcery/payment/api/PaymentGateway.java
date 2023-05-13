@@ -1,6 +1,7 @@
 package pl.wojtyna.trainings.ddd.crowdsorcery.payment.api;
 
 import org.jmolecules.architecture.hexagonal.PrimaryPort;
+import pl.wojtyna.trainings.ddd.crowdsorcery.payment.paypal.PaypalProvider;
 
 import java.util.concurrent.Flow;
 
@@ -12,4 +13,8 @@ public interface PaymentGateway {
     boolean isVerified(PaymentToken paymentToken);
 
     Flow.Publisher<PaymentEvent> events(PaymentToken token);
+
+    static PaymentGateway defaultGateway() {
+        return new PaypalProvider();
+    }
 }

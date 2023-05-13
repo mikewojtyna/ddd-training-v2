@@ -1,4 +1,4 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.confirmation;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.payment;
 
 import org.jmolecules.architecture.hexagonal.SecondaryPort;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.Deposit;
@@ -10,5 +10,5 @@ public interface PaymentProcessor {
 
     void process(Deposit deposit);
 
-    Flow.Publisher<DepositConfirmed> confirmationEvents(Deposit deposit);
+    Flow.Publisher<PaymentVerified> verifiedEvents(Deposit deposit);
 }

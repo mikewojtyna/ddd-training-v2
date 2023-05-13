@@ -2,24 +2,43 @@ package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account;
 
 import org.jmolecules.ddd.annotation.Entity;
 import org.jmolecules.ddd.annotation.Identity;
+import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEvents;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Account {
 
     private final AccountId id;
+    private final List<PendingDeposit> pendingDeposits;
+    private Money balance;
 
     public Account(AccountId id) {
         this.id = id;
+        pendingDeposits = new ArrayList<>();
+        balance = Money.zero(CurrencyUnit.USD);
     }
 
-    public DomainEvents makeDeposit(Deposit deposit) {
-        throw new UnsupportedOperationException("Implement this method");
+    public DomainEvents make(Deposit deposit) {
+        pendingDeposits.add(PendingDeposit.of(deposit));
+        return DomainEvents.of(new DepositInitiated(deposit));
+    }
+
+    public DomainEvents confirm(Deposit deposit) {
+        pendingDeposits.removeIf(pendingDeposit -> pendingDeposit.deposit().equals(deposit));
+        balance = balance.plus(deposit.amount());
+        return DomainEvents.of(new DepositConfirmed(deposit));
     }
 
     public DomainEvents withdraw(Money amount) {
-        throw new UnsupportedOperationException("Implement this method");
+        if (balance.isLessThan(amount)) {
+            throw new IllegalStateException("Insufficient funds");
+        }
+        balance = balance.minus(amount);
+        return DomainEvents.of(new WithdrawalMade(amount));
     }
 
     @Identity

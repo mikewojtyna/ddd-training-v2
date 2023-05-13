@@ -2,8 +2,8 @@ package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary;
 
 import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.Deposit;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.confirmation.DepositConfirmed;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.confirmation.PaymentProcessor;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.payment.PaymentProcessor;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.payment.PaymentVerified;
 import pl.wojtyna.trainings.ddd.crowdsorcery.payment.api.PaymentEvent;
 import pl.wojtyna.trainings.ddd.crowdsorcery.payment.api.PaymentGateway;
 import pl.wojtyna.trainings.ddd.crowdsorcery.payment.api.PaymentRequest;
@@ -31,11 +31,11 @@ public class PaymentGatewayBoundedContextIntegrationProcessor implements Payment
     }
 
     @Override
-    public Flow.Publisher<DepositConfirmed> confirmationEvents(Deposit deposit) {
+    public Flow.Publisher<PaymentVerified> verifiedEvents(Deposit deposit) {
         return translate(paymentGateway.events(pendingPayments.getPaymentToken(deposit)));
     }
 
-    private Flow.Publisher<DepositConfirmed> translate(Flow.Publisher<PaymentEvent> events) {
+    private Flow.Publisher<PaymentVerified> translate(Flow.Publisher<PaymentEvent> events) {
         throw new UnsupportedOperationException();
     }
 
