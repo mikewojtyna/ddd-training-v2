@@ -1,8 +1,8 @@
 package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.api.usecases;
 
 import org.jmolecules.architecture.hexagonal.PrimaryPort;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.Account;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.AccountRepository;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.DepositAccount;
 
 @PrimaryPort
 public class CreateAccountUseCase {
@@ -17,7 +17,7 @@ public class CreateAccountUseCase {
         accountRepository.save(newAccount());
     }
 
-    private Account newAccount() {
+    private DepositAccount newAccount() {
         throw new UnsupportedOperationException();
     }
 }

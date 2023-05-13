@@ -9,7 +9,7 @@ import java.util.Optional;
 @SecondaryPort
 public interface AccountRepository {
 
-    Optional<Account> load(AccountId id);
+    Optional<DepositAccount> load(AccountId id);
 
-    void save(Account account);
+    void save(DepositAccount account);
 }

@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Account {
+public class DepositAccount {
 
     private final AccountId id;
     private final List<PendingDeposit> pendingDeposits;
     private Money balance;
 
-    public Account(AccountId id) {
+    public DepositAccount(AccountId id) {
         this.id = id;
         pendingDeposits = new ArrayList<>();
         balance = Money.zero(CurrencyUnit.USD);
@@ -28,9 +28,11 @@ public class Account {
     }
 
     public DomainEvents confirm(Deposit deposit) {
-        pendingDeposits.removeIf(pendingDeposit -> pendingDeposit.deposit().equals(deposit));
-        balance = balance.plus(deposit.amount());
-        return DomainEvents.of(new DepositConfirmed(deposit));
+        if (pendingDeposits.removeIf(pendingDeposit -> pendingDeposit.deposit().equals(deposit))) {
+            balance = balance.plus(deposit.amount());
+            return DomainEvents.of(new DepositConfirmed(deposit));
+        }
+        return DomainEvents.empty();
     }
 
     public DomainEvents withdraw(Money amount) {
