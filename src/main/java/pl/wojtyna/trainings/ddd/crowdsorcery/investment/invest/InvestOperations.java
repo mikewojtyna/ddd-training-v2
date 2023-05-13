@@ -12,7 +12,23 @@ public class InvestOperations {
         this.transferOperations = transferOperations;
     }
 
-    public void invest(Asset asset, Money amount, Investor investor) {
+    public SomeFunction<Money, ByConsumer<Investor>> investInto(Asset asset) {
+        return amount -> investor -> invest(asset, amount, investor);
+    }
+
+    @FunctionalInterface
+    public interface SomeFunction<T, R> {
+
+        R some(T t);
+    }
+
+    @FunctionalInterface
+    public interface ByConsumer<T> {
+
+        void by(T t);
+    }
+
+    private void invest(Asset asset, Money amount, Investor investor) {
         transferOperations.transfer(findAccountOf(asset), findAccountOf(investor), amount);
     }
 

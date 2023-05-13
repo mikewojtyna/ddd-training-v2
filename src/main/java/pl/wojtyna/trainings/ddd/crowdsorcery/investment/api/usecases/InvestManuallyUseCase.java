@@ -16,6 +16,6 @@ public class InvestManuallyUseCase {
     }
 
     public void invest(Asset asset, Money amount, Investor investor) {
-        investOperations.invest(asset, amount, investor);
+        investOperations.investInto(asset).some(amount).by(investor);
     }
 }

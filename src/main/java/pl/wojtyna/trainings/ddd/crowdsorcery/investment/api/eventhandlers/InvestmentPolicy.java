@@ -24,8 +24,7 @@ public class InvestmentPolicy implements DomainPolicy {
 
     private void applyInvestmentStrategy(DepositMade depositMade) {
         strategies.activeStrategyOf(new InvestorId(depositMade.accountId())).ifPresent(strategy -> {
-            var decisions = strategy.apply(Money.of(CurrencyUnit.of(depositMade.currency()),
-                                                    depositMade.amount()));
+            var decisions = strategy.apply(Money.of(CurrencyUnit.of(depositMade.currency()), depositMade.amount()));
             investIntoDifferentAssetsBasedOn(decisions, findInvestor(depositMade));
         });
     }
@@ -36,7 +35,7 @@ public class InvestmentPolicy implements DomainPolicy {
 
     private void investIntoDifferentAssetsBasedOn(InvestmentDecisions decisions, Investor investor) {
         decisions.all().forEach(decision -> {
-            investOperations.invest(assetOf(decision), amountOf(decision), investor);
+            investOperations.investInto(assetOf(decision)).some(amountOf(decision)).by(investor);
         });
     }
 
