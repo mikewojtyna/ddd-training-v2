@@ -1,4 +1,4 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary.paymentctxacl;
 
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.Deposit;
 import pl.wojtyna.trainings.ddd.crowdsorcery.payment.api.PaymentToken;

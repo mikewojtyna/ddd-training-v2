@@ -1,4 +1,4 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.spring;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.event;
 
 import org.springframework.context.event.EventListener;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.DepositInitiated;

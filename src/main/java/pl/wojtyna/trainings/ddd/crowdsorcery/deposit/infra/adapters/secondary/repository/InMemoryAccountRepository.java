@@ -1,4 +1,4 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary.repository;
 
 import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.Account;

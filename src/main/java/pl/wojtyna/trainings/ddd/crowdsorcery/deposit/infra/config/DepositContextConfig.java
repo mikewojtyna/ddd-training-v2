@@ -1,21 +1,27 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.spring;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEventPublisher;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.api.usecases.CreateAccountUseCase;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.api.usecases.WithdrawUseCase;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.*;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.Account;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.AccountId;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.AccountRepository;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.PaymentVerifiedPolicy;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.payment.DepositInitiatedPolicy;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.payment.PaymentProcessor;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary.PaymentGatewayBoundedContextIntegrationProcessor;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary.PendingPayments;
-import pl.wojtyna.trainings.ddd.crowdsorcery.payment.api.PaymentGateway;
-import pl.wojtyna.trainings.ddd.crowdsorcery.payment.api.PaymentToken;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.event.LocalEventsHandler;
 
 import java.util.Optional;
 
 @Configuration
 public class DepositContextConfig {
+
+    @Bean
+    public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository) {
+        return new CreateAccountUseCase(accountRepository);
+    }
 
     @Bean
     public PaymentVerifiedPolicy paymentVerifiedPolicy(AccountRepository accountRepository,
@@ -27,23 +33,6 @@ public class DepositContextConfig {
     public LocalEventsHandler localEventsHandler(DepositInitiatedPolicy depositInitiatedPolicy,
                                                  PaymentVerifiedPolicy paymentVerifiedPolicy) {
         return new LocalEventsHandler(depositInitiatedPolicy, paymentVerifiedPolicy);
-    }
-
-    @Bean
-    public PaymentProcessor paymentProcessor() {
-        return new PaymentGatewayBoundedContextIntegrationProcessor(PaymentGateway.defaultGateway(),
-                                                                    new PendingPayments() {
-                                                                        @Override
-                                                                        public void add(PaymentToken paymentToken,
-                                                                                        Deposit deposit) {
-
-                                                                        }
-
-                                                                        @Override
-                                                                        public PaymentToken getPaymentToken(Deposit deposit) {
-                                                                            return null;
-                                                                        }
-                                                                    });
     }
 
     @Bean

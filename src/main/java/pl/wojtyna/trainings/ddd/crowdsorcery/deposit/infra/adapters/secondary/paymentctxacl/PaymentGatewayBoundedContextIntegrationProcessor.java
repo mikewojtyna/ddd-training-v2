@@ -1,4 +1,4 @@
-package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary;
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.adapters.secondary.paymentctxacl;
 
 import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.Deposit;
@@ -14,7 +14,7 @@ import java.util.concurrent.Flow;
 public class PaymentGatewayBoundedContextIntegrationProcessor implements PaymentProcessor {
 
     // this is a dependency on another bounded context
-    // we keep it isolated from our domain as a form of ACL
+    // we keep it isolated from our domain
     private final PaymentGateway paymentGateway;
     private final PendingPayments pendingPayments;
 
