@@ -6,7 +6,9 @@ import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEvents;
 
 public class SpringEventPublisher implements DomainEventPublisher {
 
-    private ApplicationEventPublisher applicationEventPublisher;
+    private final ApplicationEventPublisher applicationEventPublisher;
+
+    public SpringEventPublisher(ApplicationEventPublisher applicationEventPublisher) {this.applicationEventPublisher = applicationEventPublisher;}
 
     @Override
     public void publish(DomainEvents events) {

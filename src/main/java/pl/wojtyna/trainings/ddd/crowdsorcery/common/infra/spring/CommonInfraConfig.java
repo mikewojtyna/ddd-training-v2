@@ -1,5 +1,6 @@
 package pl.wojtyna.trainings.ddd.crowdsorcery.common.infra.spring;
 
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEventPublisher;
@@ -8,7 +9,7 @@ import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEventPublisher;
 public class CommonInfraConfig {
 
     @Bean
-    public DomainEventPublisher domainEventPublisher() {
-        return new SpringEventPublisher();
+    public DomainEventPublisher domainEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        return new SpringEventPublisher(applicationEventPublisher);
     }
 }
