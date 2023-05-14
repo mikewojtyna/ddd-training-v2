@@ -1,0 +1,33 @@
+@startuml
+!include ../libs/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Component diagram for CrowdSorcery backend
+
+Container(frontend, "Web Application", "React")
+System_Ext(payment_system, "Payment System")
+
+Container_Boundary(api, "CrowdSorcery backend") {
+    Boundary(deposit_bounded_context, "Deposit Bounded Context") {
+        Component(make_deposit_rest_primary_adapter, "Make deposit REST API", "Primary Adapter, Spring Rest Controller")
+        Component(make_deposit_primary_port, "Use case to make deposits", "Primary Port", "Allows investors and borrowers to make deposits")
+        Component(account_repository_secondary_port, "Account repository", "Secondary Port", "Loads and stores accounts using domain language")
+        Component(account_repository_secondary_adapter, "In-memory account repository", "Secondary Adapter", "Stores using in-memory structures")
+        Component(payment_processor_secondary_port, "Payment Processor", "Secondary Port")
+
+        Rel(make_deposit_rest_primary_adapter, make_deposit_primary_port, "Translates from REST-world and executes commands using")
+        Rel_Neighbor(make_deposit_primary_port, account_repository_secondary_port, "Loads and saves accounts")
+        Rel_Neighbor(account_repository_secondary_adapter, account_repository_secondary_port, "Implements")
+    }
+
+    Boundary(payment_bounded_context, "Payment Bounded Context") {
+        Component(payment_gateway, "Payment Gateway")
+    }
+
+    Rel(deposit_bounded_context, payment_bounded_context, "acts as a client of")
+}
+
+Rel(payment_gateway, payment_system, "integrates with")
+Rel(frontend, make_deposit_rest_primary_adapter, "Makes deposits using")
+@enduml
