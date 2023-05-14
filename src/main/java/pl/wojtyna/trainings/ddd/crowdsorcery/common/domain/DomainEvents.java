@@ -29,4 +29,8 @@ public class DomainEvents {
     public static DomainEvents of(DomainEvent... eventsArray) {
         return new DomainEvents(Arrays.stream(eventsArray).collect(Collectors.toList()));
     }
+
+    public boolean hasOccurredEventOfType(Class<? extends DomainEvent> type) {
+        return stream().map(DomainEvent::getClass).anyMatch(type::isAssignableFrom);
+    }
 }

@@ -17,9 +17,9 @@ public class InvestOperations {
     }
 
     @FunctionalInterface
-    public interface SomeFunction<T, R> {
+    public interface SomeFunction<S, R> {
 
-        R some(T t);
+        R some(S s);
     }
 
     @FunctionalInterface
