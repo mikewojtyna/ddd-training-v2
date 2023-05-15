@@ -6,7 +6,7 @@ import pl.wojtyna.trainings.ddd.crowdsorcery.investment.invest.Investor;
 public class FundraisingSystem {
 
     public ByFunction<Investor, BasedOnFunction<ProjectForm, DomainEvents>> startFundraising() {
-        return null;
+        return investor -> projectForm -> DomainEvents.of(new ProjectFundraisingStarted(investor, projectForm));
     }
 
     @FunctionalInterface
