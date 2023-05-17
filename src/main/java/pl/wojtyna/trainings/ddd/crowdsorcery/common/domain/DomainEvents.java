@@ -3,6 +3,7 @@ package pl.wojtyna.trainings.ddd.crowdsorcery.common.domain;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -32,5 +33,9 @@ public class DomainEvents {
 
     public boolean hasOccurredEventOfType(Class<? extends DomainEvent> type) {
         return stream().map(DomainEvent::getClass).anyMatch(type::isAssignableFrom);
+    }
+
+    public boolean hasAtLeastOneEventMatching(Predicate<DomainEvent> predicate) {
+        return eventList.stream().anyMatch(predicate);
     }
 }

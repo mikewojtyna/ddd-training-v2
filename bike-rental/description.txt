@@ -8,6 +8,7 @@ period of time).
 1. Rent a bike
 2. Return a bike
 3. Rental payments
+4. Renting a bike for friend without account
 
 ### Examples
 
