@@ -3,6 +3,8 @@ package pl.wojtyna.trainings.ddd.citybike.rent.good.domain.aggregates.bikestatio
 import lombok.EqualsAndHashCode;
 import org.jmolecules.ddd.annotation.AggregateRoot;
 import org.jmolecules.ddd.annotation.Entity;
+import pl.wojtyna.trainings.ddd.citybike.rent.good.domain.aggregates.bikestation.FluentLanguage.By;
+import pl.wojtyna.trainings.ddd.citybike.rent.good.domain.aggregates.bikestation.FluentLanguage.ForDuration;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEvents;
 
 import java.util.HashSet;
@@ -25,7 +27,7 @@ public class BikeStation {
         bikes.add(new BikeInStation(bike.id(), true));
     }
 
-    public FluentLanguage.ByFunction<Borrower, FluentLanguage.ForDurationFunction<RentalDuration, DomainEvents>> rent(
+    public By<Borrower, ForDuration<RentalDuration, DomainEvents>> rent(
         Bike bike) {
         return borrower -> rentalDuration -> {
             if (rentalDuration.duration().toHours() > 11) {

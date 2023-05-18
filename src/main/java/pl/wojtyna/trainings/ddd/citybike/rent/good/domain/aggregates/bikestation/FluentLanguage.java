@@ -3,13 +3,13 @@ package pl.wojtyna.trainings.ddd.citybike.rent.good.domain.aggregates.bikestatio
 public interface FluentLanguage {
 
     @FunctionalInterface
-    interface ByFunction<S, R> {
+    interface By<S, R> {
 
         R by(S s);
     }
 
     @FunctionalInterface
-    interface ForDurationFunction<S, R> {
+    interface ForDuration<S, R> {
 
         R forDuration(S s);
     }
