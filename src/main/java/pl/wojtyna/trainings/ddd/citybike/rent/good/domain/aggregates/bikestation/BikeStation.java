@@ -2,6 +2,7 @@ package pl.wojtyna.trainings.ddd.citybike.rent.good.domain.aggregates.bikestatio
 
 import lombok.EqualsAndHashCode;
 import org.jmolecules.ddd.annotation.AggregateRoot;
+import org.jmolecules.ddd.annotation.Entity;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEvents;
 
 import java.util.HashSet;
@@ -40,7 +41,12 @@ public class BikeStation {
         };
     }
 
+    public DomainEvents returnBike(Bike bike) {
+        throw new UnsupportedOperationException("Implement this method");
+    }
+
     @EqualsAndHashCode(of = "id")
+    @Entity
     private class BikeInStation {
 
         private final BikeId id;
