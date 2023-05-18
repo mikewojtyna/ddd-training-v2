@@ -19,7 +19,7 @@ public class MakeDepositUseCase {
 
     public void makeDeposit(AccountId accountId, Deposit deposit) {
         accountRepository.load(accountId).ifPresent(account -> {
-            var events = account.withdraw(deposit.amount());
+            var events = account.make(deposit);
             accountRepository.save(account);
             eventPublisher.publish(events);
         });

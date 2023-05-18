@@ -9,6 +9,7 @@ public class Bike {
 
     private final BikeId id;
     private boolean available;
+    private String lockedByVip;
 
     public Bike(BikeId id) {
         this.id = id;
