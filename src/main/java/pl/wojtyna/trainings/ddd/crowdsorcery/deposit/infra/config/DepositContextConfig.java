@@ -5,10 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEventPublisher;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.api.usecases.CreateAccountUseCase;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.api.usecases.WithdrawUseCase;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.AccountId;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.AccountRepository;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.DepositAccount;
-import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.PaymentVerifiedPolicy;
+import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account.*;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.payment.DepositInitiatedPolicy;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.payment.PaymentProcessor;
 import pl.wojtyna.trainings.ddd.crowdsorcery.deposit.infra.event.LocalEventsHandler;
@@ -19,8 +16,9 @@ import java.util.Optional;
 public class DepositContextConfig {
 
     @Bean
-    public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository) {
-        return new CreateAccountUseCase(accountRepository);
+    public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository, Deposits deposits,
+                                                     DomainEventPublisher eventPublisher) {
+        return new CreateAccountUseCase(accountRepository, deposits, eventPublisher);
     }
 
     @Bean

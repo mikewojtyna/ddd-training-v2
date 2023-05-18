@@ -1,0 +1,8 @@
+package pl.wojtyna.trainings.ddd.crowdsorcery.deposit.domain.account;
+
+import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEvents;
+
+public interface Deposits {
+
+    DomainEvents openNewAccount();
+}
