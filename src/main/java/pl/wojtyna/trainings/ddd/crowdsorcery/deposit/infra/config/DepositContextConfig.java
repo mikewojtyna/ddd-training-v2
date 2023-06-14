@@ -16,6 +16,11 @@ import java.util.Optional;
 public class DepositContextConfig {
 
     @Bean
+    public Deposits deposits() {
+        return () -> null;
+    }
+
+    @Bean
     public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository, Deposits deposits,
                                                      DomainEventPublisher eventPublisher) {
         return new CreateAccountUseCase(accountRepository, deposits, eventPublisher);
