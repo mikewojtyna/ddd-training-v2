@@ -3,6 +3,9 @@ package pl.wojtyna.trainings.recipes.citybike.solution.penalty.api.event.handler
 import pl.wojtyna.trainings.recipes.citybike.solution.penalty.domain.PenaltyDomainService;
 import pl.wojtyna.trainings.recipes.citybike.solution.reservation.api.events.BikeReservationPublicEvent;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 public class ReservationEventHandler {
 
     private final PenaltyDomainService penaltyDomainService;
@@ -21,6 +24,10 @@ public class ReservationEventHandler {
     }
 
     private void startTrackingTime(BikeReservationPublicEvent.BikeRented bikeRented) {
-        penaltyDomainService.startTrackingBike(bikeRented.bikeId());
+        Executors.newSingleThreadScheduledExecutor()
+                 .scheduleAtFixedRate(() -> penaltyDomainService.imposePenalty(bikeRented.bikeId()),
+                                      0,
+                                      1,
+                                      TimeUnit.HOURS);
     }
 }

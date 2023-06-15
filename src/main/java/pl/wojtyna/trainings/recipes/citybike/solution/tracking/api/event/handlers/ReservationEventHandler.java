@@ -11,16 +11,16 @@ public class ReservationEventHandler {
 
     public void handle(BikeReservationPublicEvent event) {
         switch (event) {
-            case BikeReservationPublicEvent.BikeRented bikeRented -> startTrackingTime(bikeRented);
-            case BikeReservationPublicEvent.BikeReturned bikeReturned -> stopTrackingTime(bikeReturned);
+            case BikeReservationPublicEvent.BikeRented bikeRented -> startTrackingLocation(bikeRented);
+            case BikeReservationPublicEvent.BikeReturned bikeReturned -> stopTrackingLocation(bikeReturned);
         }
     }
 
-    private void stopTrackingTime(BikeReservationPublicEvent.BikeReturned bikeReturned) {
+    private void stopTrackingLocation(BikeReservationPublicEvent.BikeReturned bikeReturned) {
         trackingService.stopTrackingBike(bikeReturned.bikeId());
     }
 
-    private void startTrackingTime(BikeReservationPublicEvent.BikeRented bikeRented) {
+    private void startTrackingLocation(BikeReservationPublicEvent.BikeRented bikeRented) {
         trackingService.startTrackingBike(bikeRented.bikeId());
     }
 }
