@@ -9,6 +9,11 @@ import pl.wojtyna.trainings.recipes.citybike.solution.tracking.domain.BikeLocati
 public class SpringPenaltyContextConfig {
 
     @Bean
+    public SpringLocalEventHandlerAdapter springLocalEventHandlerAdapter(ReservationEventHandler reservationEventHandler) {
+        return new SpringLocalEventHandlerAdapter(reservationEventHandler);
+    }
+
+    @Bean
     public BikeLocationTrackingService penaltyDomainService() {
         return new BikeLocationTrackingService();
     }
