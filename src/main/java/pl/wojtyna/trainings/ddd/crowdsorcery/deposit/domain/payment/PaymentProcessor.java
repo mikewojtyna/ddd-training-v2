@@ -9,6 +9,4 @@ import java.util.concurrent.Flow;
 public interface PaymentProcessor {
 
     void process(Deposit deposit);
-
-    Flow.Publisher<PaymentVerified> verifiedEvents(Deposit deposit);
 }

@@ -1,6 +1,7 @@
 package pl.wojtyna.trainings.ddd.crowdsorcery.common.infra.spring;
 
 import org.springframework.context.ApplicationEventPublisher;
+import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEvent;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEventPublisher;
 import pl.wojtyna.trainings.ddd.crowdsorcery.common.domain.DomainEvents;
 
@@ -13,5 +14,10 @@ public class SpringEventPublisher implements DomainEventPublisher {
     @Override
     public void publish(DomainEvents events) {
         events.stream().forEach(applicationEventPublisher::publishEvent);
+    }
+
+    @Override
+    public void publish(DomainEvent event) {
+        applicationEventPublisher.publishEvent(event);
     }
 }
