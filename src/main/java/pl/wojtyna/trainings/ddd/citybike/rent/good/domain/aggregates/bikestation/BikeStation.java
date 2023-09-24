@@ -37,7 +37,7 @@ public class BikeStation {
                         .filter(BikeInStation::isAvailable).findAny()
                         .map(bikeInStation -> {
                             bikeInStation.setAvailable(false);
-                            return DomainEvents.of(new BikeRent(borrower, rentalDuration));
+                            return DomainEvents.of(new BikeRentalEvent.BikeRented(borrower, rentalDuration));
                         })
                         .orElseThrow(() -> new BikeNotAvailableException("Bike not available"));
         };
