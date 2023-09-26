@@ -30,7 +30,10 @@ class BikeStationTest {
         var borrower = new Borrower(new BorrowerId("george"));
 
         // when
-        var events = bikeStation.rent(bike).by(borrower).forDuration(new RentalDuration(Duration.ofHours(6)));
+        var events = bikeStation
+            .rent(bike)
+            .by(borrower)
+            .forDuration(new RentalDuration(Duration.ofHours(6)));
 
         // then
         events.hasAtLeastOneEventMatching(event -> event instanceof BikeRent);

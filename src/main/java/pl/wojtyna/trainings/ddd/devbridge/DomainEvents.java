@@ -8,9 +8,15 @@ public class DomainEvents {
 
     private List<DomainEvent> events;
 
-    public boolean hasOccurredEventOfType(Class<? extends DomainEvent> eventType) {return false;}
+    public DomainEvents(List<DomainEvent> events) {
+        this.events = events;
+    }
+
+    public boolean hasOccurredEventOfType(Class<? extends DomainEvent> eventType) {
+        return events.stream().map(DomainEvent::getClass).anyMatch(eventType::isAssignableFrom);
+    }
 
     public static DomainEvents of(DomainEvent event) {
-        return null;
+        return new DomainEvents(List.of(event));
     }
 }
