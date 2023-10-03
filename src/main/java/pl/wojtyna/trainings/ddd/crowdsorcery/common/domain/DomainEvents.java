@@ -38,4 +38,12 @@ public class DomainEvents {
     public boolean hasAtLeastOneEventMatching(Predicate<DomainEvent> predicate) {
         return eventList.stream().anyMatch(predicate);
     }
+
+    public void hasNotOccurredEventOfType(Class<pl.wojtyna.trainings.ddd.devbridge.tracking.BikeMoved> bikeMovedClass) {
+
+    }
+
+    public void hasNotOccurredEventOfType(Class<pl.wojtyna.trainings.ddd.devbridge.tracking.BikeMoved> bikeMovedClass) {
+
+    }
 }
