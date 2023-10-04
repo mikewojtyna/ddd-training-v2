@@ -14,15 +14,15 @@ public class BikeReservationReadModelUpdaterHandler {
         switch (event) {
             case BikeReservationPublicEvent.BikeRented bikeRented -> {
                 // update read model
-                map.getBikeStations().stream().filter(station -> station.getId().equals(bikeRented.stationId())).findAny().ifPresent(station -> {
-                    station.getBikes().stream().filter(bike -> bike.getId().equals(bikeRented.bikeId())).findAny().ifPresent(bike -> {
-                        bike.setAvailable(false);
+                mapReadDatabase.readData().getBikeStations().stream().filter(station -> station.getId().equals(bikeRented.stationId())).findAny().ifPresent(station -> {
+                    station.getBikes().stream().filter(bike -> bike.getId().equals(bikeRented.bikeId())).findAny()
+                           .ifPresent(bike -> {
+                               bike.setAvailable(false);
+                           });
+                    case BikeReservationPublicEvent.BikeReturned bikeReturned -> {
+                        // update read model
                     }
                 }
             }
-            case BikeReservationPublicEvent.BikeReturned bikeReturned -> {
-                // update read model
-            }
         }
     }
-}
