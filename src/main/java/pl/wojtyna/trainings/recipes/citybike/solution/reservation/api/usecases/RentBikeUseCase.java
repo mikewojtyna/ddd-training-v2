@@ -12,8 +12,9 @@ public class RentBikeUseCase {
 
     public void rent(UUID bikeId) {
         bikeStationRepository.findById(bikeId).ifPresent(bikeStation -> {
-            bikeStation.rentBike(bikeId);
+            DomainEvents events = bikeStation.rentBike(bikeId);
             bikeStationRepository.save(bikeStation);
+            publishEvents();
         });
     }
 }
