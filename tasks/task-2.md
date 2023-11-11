@@ -1,0 +1,1 @@
+# Try to intuitively discover domains in Crowd Sorcery
