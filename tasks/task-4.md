@@ -4,7 +4,7 @@
 Segregate current Building Blocks into model layers.
 
 ### Solution
-You can find solutions in the `solutions.crowdsorcery.task4` package.
+You can find solutions in the `solutions.task4` package.
 
 ## Discussion
 - How was your initial model changed?

@@ -20,7 +20,7 @@ Create a new model supporting the following requirements.
 Consider using the Policy building block.
 
 ### Solution
-You can find solutions in the `solutions.crowdsorcery.task5` package.
+You can find solutions in the `solutions.task5` package.
 
 ## Discussion
 - When do you introduce policies?
