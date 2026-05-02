@@ -1,0 +1,12 @@
+Step,Domain Event,Actor / Role,Command,Policy / Note
+1,Competitor Analysis Requested,Sales Representative,Request Competitor Analysis,Mandatory before proposal is drafted for any prospect
+2,Prospect Profile Reviewed,Market Analyst,Review Prospect Profile,Industry segment and company size determine analysis scope
+3,Industry Segment Identified,Market Analyst,Identify Industry Segment,Segment drives which competitor registry is queried
+4,Competitor Research Initiated,Market Analyst,Initiate Competitor Research,Covers direct and indirect competitors in the segment
+5,Competitor Identified,Market Analyst,Identify Competitor,Each competitor logged separately
+6,Competitor Profile Created,Market Analyst,Create Competitor Profile,Includes service offering overlap and known pricing positioning
+7,Competitive Strengths Assessed,Market Analyst,Assess Competitive Strengths,Strengths relevant to the specific prospect's needs
+8,Competitive Weaknesses Identified,Market Analyst,Identify Competitive Weaknesses,Weaknesses become differentiators in the proposal
+9,Competitor Analysis Report Completed,Market Analyst,Complete Competitor Analysis Report,Report must cover at least three competitors
+10,Analysis Delivered To Sales Team,Market Analyst,Deliver Analysis To Sales Team,Triggers proposal drafting step in lead-to-client-conversion process
+11,Offer Strategy Adjusted,Sales Representative,Adjust Offer Strategy,Proposal framing updated based on competitive gaps identified

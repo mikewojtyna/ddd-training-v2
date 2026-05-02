@@ -1,0 +1,14 @@
+Step,Domain Event,Actor / Role,Command,Policy / Note
+1,Client Requirement Submitted,Client,Submit Capability Requirement,Requirement must list required capabilities and engagement duration
+2,Capability Profile Created,Talent Manager,Create Capability Profile,Structured from the client requirement; used to score candidates
+3,Matching Partners Identified,System,Identify Matching Partners,Only partners whose specialisations overlap the capability profile are notified
+4,Partner Network Notified,System,Notify Partners,Partners have a defined SLA window to submit candidates
+5,Engineer Candidates Submitted By Partner,Recruitment Partner,Submit Engineer Candidates,Each candidate must include a capability assessment from the partner
+6,Candidate Capability Assessed,Talent Manager,Assess Candidate Capability,Scored against the capability profile; minimum score required to proceed
+7,Engineer Short Listed,Talent Manager,Shortlist Engineer,Maximum three candidates shortlisted per requirement
+8,Engineer Match Found,System,Match Engineer To Requirement,Triggered when at least one candidate meets the capability threshold
+9,Client Notified Of Match,System,Notify Client Of Match,Includes shortlisted candidate summaries
+10,Engineer Presented To Client,Talent Manager,Present Engineer To Client,Presentation may include interview or profile review session
+11,Match Accepted By Client,Client,Accept Engineer Match,Client selects one candidate from the shortlist
+12,Partner Notified Of Selection,System,Notify Partner Of Selection,Non-selected partners also notified
+13,Engineer Engagement Started,System,Start Engineer Engagement,Engagement record created; billing relationship established

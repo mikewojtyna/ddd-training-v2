@@ -1,0 +1,15 @@
+Step,Domain Event,Actor / Role,Command,Policy / Note
+1,Lead Captured,Sales Representative,Capture Lead,Lead must have at least a company name and contact
+2,Lead Qualified,Sales Representative,Qualify Lead,Lead is qualified when budget and timeline are confirmed
+3,Prospect Status Assigned,System,Convert Lead To Prospect,Automatically triggered once qualification criteria are met
+4,Competitor Analysis Initiated,Sales Representative,Request Competitor Analysis,Required before any proposal is drafted
+5,Competitors Identified,Market Analyst,Identify Competitors,Based on industry segment and prospect size
+6,Competitor Profile Created,Market Analyst,Create Competitor Profile,One profile per identified competitor
+7,Competitive Report Prepared,Market Analyst,Prepare Competitive Report,Report delivered to owning Sales Representative
+8,Proposal Drafted,Sales Representative,Draft Proposal,Proposal must reference competitive differentiation
+9,Proposal Sent To Prospect,Sales Representative,Send Proposal,Prospect notified via registered contact channel
+10,Proposal Accepted By Prospect,Prospect,Accept Proposal,Written or digital acceptance required
+11,Contract Negotiation Started,Sales Representative,Start Contract Negotiation,Legal reviews non-standard terms
+12,Contract Signed,Prospect,Sign Contract,Triggers prospect-to-client conversion
+13,Prospect Converted To Client,System,Convert Prospect To Client,Party role updated from Prospect to Client
+14,Client Account Activated,System,Activate Client Account,Client can now submit capability requirements

@@ -1,0 +1,11 @@
+Step,Domain Event,Actor / Role,Command,Policy / Note
+1,Partnership Application Received,Recruitment Agency,Submit Partnership Application,Application includes specialisation areas and candidate pool size
+2,Application Reviewed,Partner Manager,Review Application,Reviewed within 5 business days
+3,Partner Background Checked,Partner Manager,Initiate Background Check,Checks include references and past placement success rate
+4,Background Check Passed,System,Complete Background Check,Application rejected if check fails
+5,Partnership Terms Negotiated,Partner Manager,Negotiate Partnership Terms,Commission structure and SLA agreed at this step
+6,Partnership Agreement Signed,Recruitment Agency,Sign Partnership Agreement,Both parties must sign; digital signature accepted
+7,Partner Role Assigned,System,Assign Partner Role,Party record updated with Partner role
+8,Partner Specialisations Registered,Partner Manager,Register Partner Specialisations,Capability tags used for future engineer matching
+9,Partner Profile Published,System,Publish Partner Profile,Visible internally to Talent Managers
+10,Partner Activated,System,Activate Partner,Partner can now submit engineer candidates

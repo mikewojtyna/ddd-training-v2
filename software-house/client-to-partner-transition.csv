@@ -1,0 +1,11 @@
+Step,Domain Event,Actor / Role,Command,Policy / Role
+1,Partnership Interest Expressed By Client,Client,Express Partnership Interest,Client must have been active for at least 6 months
+2,Client Account Reviewed,Partner Manager,Review Client Account,Reviews placement history and payment standing
+3,Client Eligibility Confirmed,Partner Manager,Confirm Client Eligibility,Ineligible if outstanding invoices or active disputes exist
+4,Transition Proposal Sent To Client,Partner Manager,Send Transition Proposal,Outlines dual-role rights and obligations
+5,Transition Proposal Accepted By Client,Client,Accept Transition Proposal,Written acceptance required before agreement is drafted
+6,Dual Role Agreement Drafted,Legal,Draft Dual Role Agreement,Agreement covers both Client and Partner obligations
+7,Dual Role Agreement Signed,Client,Sign Dual Role Agreement,Countersigned by Partner Manager
+8,Client Role Extended To Partner,System,Extend Party Role,Party now holds both Client and Partner roles simultaneously
+9,Partner Capabilities Registered,Client / New Partner,Register Partner Capabilities,Capability tags added; used for engineer matching
+10,Client Partner Account Activated,System,Activate Client Partner Account,Party can now submit candidates and receive referral commissions
