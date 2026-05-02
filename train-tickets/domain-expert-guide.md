@@ -113,6 +113,7 @@ This simulation step is new. The old system had no way to test connections befor
 - **Withheld tickets are a supply management tool**, not a bug: they are deliberately held back and released at the right moment.
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## Domain Vocabulary
 
